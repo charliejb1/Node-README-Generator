@@ -3,42 +3,61 @@ const inquirer = require("inquirer");
 
 const generateMarkdown = ({title, description, install, usage, contribution, instruction, username, link, email, license}) => {
   return ` ## Table of contents:
-  [Title](#Title)
-  [Description](#Description)
-  [Install](#Installation)
-  [Usage](#Usage)
-  [Contribution](#Contribution)
-  [Instructions](#Instructions)
-  [License](#License)
+ 1.[Title](#Title)
 
- ## Title: 
+ 2.[Description](#Description)
+
+ 3.[Install](#Installation)
+
+ 4.[Usage](#Usage)
+
+ 5.[Contribution](#Contribution)
+
+ 6.[Tests](#Tests)
+
+ 7.[Instructions](#Instructions)
+
+ 8.[License](#License)
+
+ 9.[Questions](#Questions?)
+ 
+ ## Title
  ${title}
   
- ## Description: 
+ ## Description
  ${description}
 
- ## Installation: 
+ ## Installation
  ${install}
 
- ## Usage: 
+ ## Usage
  ${usage}
 
- ## Contribution 
+ ## Contribution
  ${contribution}
 
- ## Instructions: 
+ ## Test Instructions 
  ${instruction}
 
- ## License: 
- ${license}
+ ## License
+ ${generateBadge(license)}
 
  ## Questions?
 
-  Contact Information:
   Github Username: ${username} 
   Github Profile Link: ${link}
-  Email: ${email}`
+  Email: ${email}
   
+  `
+
+}
+
+const generateBadge = function(license){
+if (license === "Apache 2.0"){
+  return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"}
+  else if (license === "Boost Software License 1.0"){
+   return "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"
+  }
 }
 
 inquirer
@@ -71,7 +90,7 @@ inquirer
       {
         type: 'input',
         message: 'What are the test instructions?',
-        name: 'instructions',
+        name: 'instruction',
       },
       {
         type: 'input',
@@ -90,8 +109,8 @@ inquirer
       },
       {
         type: 'list',
-        message: 'What license do you want?',
-        choices: ["license1","license",],
+        message: 'Which license do you want?',
+        choices: ["Apache 2.0","Boost Software License 1.0",],
         name: 'license',
       },
   ])
