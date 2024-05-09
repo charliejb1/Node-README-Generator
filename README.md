@@ -54,6 +54,11 @@
   Email: ads
   
   ## Screen Recording
-  ![Readme Screen Recording](./Untitled_Project_V1.mp4)
-  
+
+  https://github.com/charliejb1/Node-README-Generator/assets/159658511/424f597b-7a89-4b1e-b0aa-a70cea7218a6
+
+
+
+
+
   
